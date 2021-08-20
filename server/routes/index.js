@@ -24,7 +24,24 @@ router.get("/qa", (req, res, next) => {
 
 // GET user can see one particular key in Q&A data object.
 router.get("/qa/:id", (req, res, next) => {
-  res.status(200).json({ message: "Fully connected to index page !" });
+  console.log("req.params :", req.params);
+  console.log("req.params.id :", req.params.id);
+  console.log("req.body :", req.body);
+  if (!mongoose.isValidObjectId(req.params.id)) {
+    return res
+      .status(400)
+      .json({ message: "The id param is not valid mongodb objectId" });
+  }
+  QA.findById(req.params.id)
+    .then((qaDocument) => {
+      if (!qaDocument) {
+        return res.status(404).json({ message: "This document doesn't exist" });
+      }
+      res.status(200).json(qaDocument);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
 });
 
 // POST user can create Q&A data.
@@ -62,9 +79,9 @@ router.patch("/qa/:id", async (req, res, next) => {
 
 // DELETE user can delete one particular Q&A data.
 router.delete("/qa/:id", (req, res, next) => {
-  console.log("req.params :", req.params);
-  console.log("req.params.id :", req.params.id);
-  console.log("req.body :", req.body);
+  // console.log("req.params :", req.params);
+  // console.log("req.params.id :", req.params.id);
+  // console.log("req.body :", req.body);
   QA.findByIdAndDelete(req.params.id)
     .then((qaDocument) => {
       if (!qaDocument) {

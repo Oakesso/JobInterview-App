@@ -1,4 +1,4 @@
-var dataCards = [
+var data = [
   {
     question: "What does a DOCTYPE do?",
     answer: `DOCTYPE is an abbreviation for Document Type. 
@@ -414,4 +414,4 @@ var dataCards = [
   },
 ];
 
-module.exports = dataCards;
+module.exports = data;
