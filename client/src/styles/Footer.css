@@ -1,0 +1,27 @@
+.ul-1,
+.ul-2,
+.ul-3 {
+  /* border: 1px solid rgb(220, 218, 218); */
+  width: 200px;
+  height: 200px;
+  list-style: none;
+}
+
+.ul-one {
+  margin-left: 10px;
+}
+
+.ul-two {
+  margin-left: 10px;
+}
+
+.ul-three {
+  margin-left: 10px;
+}
+
+.footer-container {
+  border: 1px solid rgb(238, 238, 238);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

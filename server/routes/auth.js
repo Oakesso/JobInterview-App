@@ -5,12 +5,13 @@ const User = require("../models/User");
 
 const salt = 10;
 
+// POST user sign in send data to server.
 router.post("/signin", (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email })
     .then((userDocument) => {
       if (!userDocument) {
-        return res.status(400).json({ message: "Invalid credentials" });
+        return res.status(400).json({ message: "invalid email" });
       }
 
       const isValidPassword = bcrypt.compareSync(
@@ -18,7 +19,7 @@ router.post("/signin", (req, res, next) => {
         userDocument.password
       );
       if (!isValidPassword) {
-        return res.status(400).json({ message: "Invalid credentials" });
+        return res.status(400).json({ message: "invalid password" });
       }
 
       req.session.currentUser = {
@@ -31,13 +32,14 @@ router.post("/signin", (req, res, next) => {
     .catch(next);
 });
 
+// POST user sign up send data to server.
 router.post("/signup", (req, res, next) => {
   const { email, password, firstName, lastName } = req.body;
 
   User.findOne({ email })
     .then((userDocument) => {
       if (userDocument) {
-        return res.status(400).json({ message: "Email already taken" });
+        return res.status(400).json({ message: "email already taken" });
       }
 
       const hashedPassword = bcrypt.hashSync(password, salt);
@@ -52,6 +54,7 @@ router.post("/signup", (req, res, next) => {
     .catch(next);
 });
 
+// GET user logout of session.
 router.get("/logout", (req, res, next) => {
   req.session.destroy(function (error) {
     if (error) next(error);

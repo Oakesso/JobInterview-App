@@ -7,7 +7,7 @@ const router = express.Router();
 // const data = require("../data/data"); // data for testing without mongoDB connection.
 
 // GET user read all Q&A data.
-router.get("/qa", (req, res, next) => {
+router.get("/", (req, res, next) => {
   QA.find()
     .then((qaDocument) => {
       // console.log("qaDocument: ", qaDocument);
@@ -23,7 +23,7 @@ router.get("/qa", (req, res, next) => {
 });
 
 // GET user can see one particular key in Q&A data object.
-router.get("/qa/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   console.log("req.params :", req.params);
   console.log("req.params.id :", req.params.id);
   console.log("req.body :", req.body);
@@ -45,7 +45,7 @@ router.get("/qa/:id", (req, res, next) => {
 });
 
 // POST user can create Q&A data.
-router.post("/qa", (req, res, next) => {
+router.post("/", (req, res, next) => {
   // console.log("req.body : ", req.body);
   QA.create(req.body)
     .then((qaCreated) => {
@@ -58,7 +58,7 @@ router.post("/qa", (req, res, next) => {
 });
 
 // PATCH user can update "partialy" one particular key in Q&A data object.
-router.patch("/qa/:id", async (req, res, next) => {
+router.patch("/:id", async (req, res, next) => {
   // console.log("req.params :", req.params);
   // console.log("req.body :", req.body);
   const { id } = req.params;
@@ -78,7 +78,7 @@ router.patch("/qa/:id", async (req, res, next) => {
 });
 
 // DELETE user can delete one particular Q&A data.
-router.delete("/qa/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   // console.log("req.params :", req.params);
   // console.log("req.params.id :", req.params.id);
   // console.log("req.body :", req.body);
