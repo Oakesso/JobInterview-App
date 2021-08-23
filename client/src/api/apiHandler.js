@@ -50,6 +50,13 @@ const apiHandler = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  postQA(userInfo) {
+    return service
+      .post("/api/qa", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
 
 export default apiHandler;

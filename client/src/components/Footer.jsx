@@ -4,7 +4,7 @@ import "../styles/Footer.css";
 function Footer() {
     return (
         <div class="footer-container">
-            <div >
+            <div class="ul-one">
                 <ul class="ul-1" >
                     <li>
                         <h3>Get To Know Us:</h3>

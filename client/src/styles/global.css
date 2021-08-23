@@ -8,15 +8,15 @@
 /* } */
 
 /* set the font for the all page */
-/* html {
+html {
   font-family: "Nunito", sans-serif;
-} */
+}
 
 /* suppress underlines */
-/* a {
+a {
   text-decoration: none;
   color: inherit;
-} */
+}
 
 /* suppress bullet point. */
 /* ul {
