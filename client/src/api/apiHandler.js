@@ -44,6 +44,7 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+  // api call to read data.
   getQA() {
     return service
       .get("/api/qa")
@@ -51,12 +52,19 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+  // api call to record new data.
   postQA(userInfo) {
     return service
       .post("/api/qa", userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  // api call to update data.
+  updateQA(userInfo) {
+    return service.patch();
+  },
+  // api call to delete data.
 };
 
 export default apiHandler;

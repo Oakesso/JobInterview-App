@@ -1,0 +1,31 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+// import { withUser } from "../components/Auth/withUser";
+import "./../styles/NavForm.css"
+
+const NavForm = (props) => {
+    // const { context } = props;
+
+    return (
+        <nav className="NavForm">
+            <ul className="nav-list">
+                <li>
+                    <NavLink to="/create-questions">Create</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/read-questions">Read</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/update-questions">Update</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/delete-questions">Delete</NavLink>
+                </li>
+  
+            </ul>
+        </nav>            
+        )
+}
+
+export default NavForm;
+

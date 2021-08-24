@@ -1,101 +1,96 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import NavMain from "../NavMain";
-import "./../../styles/QAForm.css";
+import NavForm from "../NavForm";
+import "./../../styles/CreateForm.css";
 
-class QAForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+class CreateForm extends Component {
+    state = {
             question: '',
             answer: '', 
             category: '',
             level: '',
         };       
-    }
 
-    handleQuestionInput = (event) => {
-        this.setState({
-            question: event.target.value            
-        })
-    }
+        handleChange = (event) => {
+            this.setState({
+                [event.target.name]: event.target.value,
+            });
+        };
 
-    handleAnswerInput = (event) => {
-        this.setState({
-            answer: event.target.value
-        })
-    }
 
-    handleCategoryInput = (event) => {
-        this.setState({
-            category: event.target.value
-        })
-    }
+        // call of api handler see in "apiHandler.js".
+        // api connect to mongo and create new data record.        
+        handleSubmit = (event) => {
+            event.preventDefault();
+            // axios handler for api call.
+            apiHandler   
+            .postQA(this.state)
+            .then((data) => {
+                this.props.context.setUser(data);
 
-    handleLevelInput = (event) => {
-        this.setState({
-            level: event.target.value
-        })
-    }
-    
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-        
-    //     apiHandler
-    //     .postQA(this.state)
-    //     .then((data) => {
-    //         this.props.context.setUser(data);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     });
-    // };
+                // set state to initial values.                
+            }).catch((error) => {console.log(error)});                       
+        }
 
     render() {
         return (
             <div>                
                 <NavMain />
-                <h1>QAForm :</h1> {/* title in body */}
+                {/* <h1>Create QAForm :</h1> */}
+                <NavForm />
                 <form class="QAForm" onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="question" >Your Question Here</label>
-                        <input type="text" id="question" name="question" class="qestion" value={this.state.question} onChange={(e) => {this.handleChange(e)}} placeholder="your question"/>
+                        <label htmlFor="question" >Type in your question here: 
+                            <input type="text" id="question" name="question" class="qestion" value={this.state.question} onChange={(e) => {this.handleChange(e)}} placeholder="your question"/>
+                        </label>
                     </div>
 
                     <div>
-                        <label htmlFor="answer">Your Answer Here</label>
-                        <input type="text" id="answer" name="answer" class="answer" value={this.state.answer} onChange={(e) => this.handleChange(e)} placeholder="your answer"/>                                 
+                        <label htmlFor="answer">Type in your answer here: 
+                            <input type="text" id="answer" name="answer" class="answer" value={this.state.answer} onChange={(e) => this.handleChange(e)} placeholder="your answer"/>                                 
+                        </label>
                     </div>
 
                     <div>
-                        <label htmlFor="category">Category</label>
-                        <input type="text" id="category" name="category" class="category" value={this.state.category} onChange={(e) => this.handleChange(e)} placeholder="HTML, CSS, Javascript, React or NodeJS"/>
-                            {/* <select type="text" id="typeQA" name="typeQA" class="typeQA">
+                        <label htmlFor="category">Category
+                            <select 
+                            name="category" 
+                            id="category" 
+                            class="category"
+                            value={this.state.category} 
+                            onChange={(e) => this.handleChange(e)}>
                                 <option value=""></option>
-                                <option value={this.state.category} onChange={this.handleChange}>Html</option>
-                                <option value={this.state.category} onChange={this.handleChange}>Css</option>
-                                <option value={this.state.category} onChange={this.handleChange}>Javascript</option> 
-                                <option value={this.state.category} onChange={this.handleChange}>React</option> 
-                                <option value={this.state.category} onChange={this.handleChange}>Node</option> 
-                            </select> */}
+                                <option value="HTML">html</option>
+                                <option value="CSS">css</option>
+                                <option value="Javascript">javascript</option>
+                                <option value="React">reactjs</option>
+                                <option value="NodeJS">nodejs</option>
+                            </select>                           
+                        </label>
                     </div>
 
                     <div>
-                        <label htmlFor="level">Level</label>
-                        <input type="text" id="level" name="level" class="level" value={this.state.answer} onChange={(e) => this.handleChange(e)} placeholder="basic, medium, or expert"/>
-                            {/* <select type="text" id="typeLevel" name="typeLevel" class="typeLevel">
+                        <label htmlFor="level">Level
+                            <select 
+                                name="level" 
+                                id="level" 
+                                class="level"
+                                value={this.state.level} 
+                                onChange={(e) => this.handleChange(e)}>
                                 <option value=""></option>
-                                <option value="basic">Basic</option>
-                                <option value="medium">Medium</option>
-                                <option value="expert">Expert</option>
-                            </select>                             */}
+                                <option value="basic">basic</option>
+                                <option value="medium">medium</option>
+                                <option value="expert">expert</option>
+                            </select>                            
+                        </label>                            
                     </div>
 
-                    <button>Submit</button>   
+                    <input type="submit" value="Send" />
 
                 </form>           
             </div>        
         )}
 }
 
-export default QAForm;    
+export default CreateForm;    

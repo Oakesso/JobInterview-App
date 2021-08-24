@@ -5,8 +5,12 @@ import { withUser } from "../Auth/withUser";
 
 class FormSignin extends Component {
   state = {
+    // { username, email, password, isAdmin, history }
+    username: "",
     email: "",
     password: "",
+    isAdmin: false,
+    history: [],
   };
 
   handleChange = (event) => {

@@ -29,10 +29,10 @@ const NavMain = (props) => {
           <React.Fragment>
             <li>
                {context.isLoggedIn && (
-              <NavLink to="/questions">
-                {context.isLoggedIn} Take Questions
-              </NavLink>            
-               )}
+                <NavLink to="/create-questions">
+                  {context.isLoggedIn} Take Questions
+                </NavLink>            
+                )}
             </li> 
             <li>
               <NavLink to="/profile">
@@ -53,9 +53,6 @@ const NavMain = (props) => {
             <li>
               <NavLink to="/signup">Create account</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/questions">Take Questions</NavLink>            
-            </li>  */}
           </React.Fragment>
         )}
       </ul>

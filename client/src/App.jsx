@@ -6,7 +6,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
-import QAForm from "./components/Forms/CreateForm";
+import CreateForm from "./components/Forms/CreateForm";
 // import Footer from "./components/Footer";
 
 function App() {
@@ -19,7 +19,11 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/profile" component={Profile} />
-        <ProtectedRoute exact path="/questions" component={QAForm} /> {/* protected routes for questions */}
+        <ProtectedRoute exact path="/create-questions" component={CreateForm} /> {/* protected routes for questions */}
+        {/* <ProtectedRoute exact path="/read-all-questions" component={CreateForm} />
+        <ProtectedRoute exact path="/read-one-question" component={CreateForm} />
+        <ProtectedRoute exact path="/update-question" component={CreateForm} />
+        <ProtectedRoute exact path="/delete-question" component={CreateForm} /> */}
       </Switch>
     </div>
   );
