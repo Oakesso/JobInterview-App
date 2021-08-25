@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import { withRouter, Redirect } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
 
 class FormSignin extends Component {

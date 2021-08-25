@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
+import { withRouter } from "react-router-dom";
+import { withUser } from "../Auth/withUser";
 
 import "./../../styles/CreateForm.css";
 
@@ -109,4 +111,4 @@ class CreateForm extends Component {
         )}
 }
 
-export default CreateForm;    
+export default withRouter(withUser(CreateForm));    

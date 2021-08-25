@@ -1,57 +1,71 @@
-import React from 'react';
-import apiHandler from '../../api/apiHandler';
-// import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+// import apiHandler from '../../api/apiHandler';
+import { withRouter } from "react-router-dom";
+import { withUser } from "../Auth/withUser";
+import axios from 'axios';
+// require("dotenv").config();
 
+class UpdateForm extends Component {
+  state = {
+      allQuestions: [],
+      };       
 
-class UpdateForm extends React.Component {
-  constructor(props) {
-    super(props);
-    // initial state of our data.
-    this.state = {
-      // _id: '',
-      question: '',
-      answer: '', 
-      category: '',
-      level: '',
-    }    
-  }
+  // componentDidMount() {    
+  //   axios
+  //     .get( process.env.REACT_APP_BACKEND_URL + "/api/qa")
+  //     .then((apiResponse) => {
+  //       console.log("apiResponse 1 : ", apiResponse.data);
+  //       this.setState({
+  //         allQuestions: apiResponse.data,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //   };
 
-  getData() {
-    apiHandler   
-      .updateQA(this.state)
-      .then((apiResponse) => { 
-          console.log("apiResponse: ", apiResponse);
-          const id = this.props.match.params.id;
-          if (this.props.action === "update") {
-            console.log("this.props.action: ", this.props.action);
-          // use of axios with apiHandler          
-          };
-      })
-      .catch((error) => {console.log(error)});
-  }
-      
-  componentDidMount() {
-    this.getData();
-    
-  };
-
-  handleChange = (event) => {            
-      this.setState({
+  handleChange = (event) => {
+    this.setState({
         [event.target.name]: event.target.value,
+    });
+}
+
+  handleUpdate = (event) => {
+    event.preventDefault();
+
+    const data = {
+      question: this.state.question,
+      answer: this.state.answer,
+      category: this.state.category,
+      level: this.state.level,
+    };
+
+    const id = this.props.match.params.id;
+    console.log("id : ", this.state._id);
+    console.log("this.props.match.params.id :", this.props.match.params.id);
+    console.log("this.state : ", this.state);
+
+    axios
+    .patch(process.env.REACT_APP_BACKEND_URL + "/api/qa/" + this.state._id, data)
+    .then((apiResponse) => {
+      console.log("apiResponse 2 : ", apiResponse.data);
+
+      this.setState({
+        allQuestions: this.state.allQuestions.filter(
+          (question) => question._id !== id
+        ),
       });
-    };
-        
-  handleSubmit = (event) => {
-    event.preventDefault();    
-    console.log("this.state :", this.state);
-    console.log("this.props :", this.props);
-    };
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
           
   render() {
     return (
         <div>   
-            <h1>Hello Edit</h1>
-            <form onSubmit={this.handleSubmit}>            
+            <h1>Edit Question - Answer</h1>
+            <form onSubmit={this.handleUpdate}>            
             <div>
                 <label htmlFor="_id">_id</label>
                 <input
@@ -59,7 +73,7 @@ class UpdateForm extends React.Component {
                 id="_id"
                 name="_id"
                 value={this.state._id}
-                onChange={(e) => this.handleChange(e)}/>
+                onChange={this.handleChange}/>
             </div>                          
             <div>
                 <label htmlFor="question">Question</label>
@@ -68,8 +82,7 @@ class UpdateForm extends React.Component {
                 id="question"
                 name="question"
                 value={this.state.question}
-                onChange={(e) => this.handleChange(e)}
-                />
+                onChange={this.handleChange}/>
             </div>
             <div>
                 <label htmlFor="answer">Answer</label>
@@ -78,8 +91,7 @@ class UpdateForm extends React.Component {
                 id="answer"
                 name="answer"
                 value={this.state.answer}
-                onChange={this.handleChange}
-                />
+                onChange={this.handleChange}/>
             </div>
             <div>
                 <label htmlFor="category">Category</label>
@@ -87,8 +99,8 @@ class UpdateForm extends React.Component {
                     name="category" 
                     id="category" 
                     class="category"
-                    value={this.state.category} 
-                    onChange={(e) => this.handleChange(e)}>
+                    value={this.state.category}
+                    onChange={this.handleChange}>
                         <option value=""></option>
                         <option value="HTML">html</option>
                         <option value="CSS">css</option>
@@ -103,8 +115,8 @@ class UpdateForm extends React.Component {
                     name="level" 
                     id="level" 
                     class="level"
-                    value={this.state.level} 
-                    onChange={(e) => this.handleChange(e)}>
+                    value={this.state.level}
+                    onChange={this.handleChange}>
                     <option value=""></option>
                     <option value="basic">basic</option>
                     <option value="medium">medium</option>
@@ -118,4 +130,4 @@ class UpdateForm extends React.Component {
   }
   }
 
-export default UpdateForm;
+export default withRouter(withUser(UpdateForm));

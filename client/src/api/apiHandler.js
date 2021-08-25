@@ -63,7 +63,7 @@ const apiHandler = {
   // api call to update data.
   updateQA(userInfo) {
     return service
-      .patch("api/qa/:id", userInfo)
+      .patch("api/qa/" + userInfo.id, userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },

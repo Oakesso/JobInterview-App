@@ -33,7 +33,7 @@ class ReadForm extends React.Component {
                 return (
                     <li>                    
                         <div>
-                            - {question._id} // Your Questions Array size is : {this.state.allQuestions.length}
+                            - {question._id}  Your Questions Array size is : {this.state.allQuestions.length}
                         </div>
                         <br></br>
                         <div>
