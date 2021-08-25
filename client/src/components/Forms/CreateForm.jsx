@@ -25,10 +25,17 @@ class CreateForm extends Component {
             apiHandler   
             .postQA(this.state)
             .then((data) => {
-                this.props.context.setUser(data);
-
+                console.log('data :', data);
+                this.props.context.setUser(data);            
                 // set state to initial values.                
-            }).catch((error) => {console.log(error)});                       
+            }).catch((error) => {console.log(error)}); 
+            
+            // this.state = {
+            //     question: '',
+            //     answer: '', 
+            //     category: '',
+            //     level: '',
+            // };
         }
 
     render() {
@@ -37,13 +44,27 @@ class CreateForm extends Component {
                 <form class="QAForm" onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="question" >Type in your question here: 
-                            <input type="text" id="question" name="question" class="qestion" value={this.state.question} onChange={(e) => {this.handleChange(e)}} placeholder="your question"/>
+                            <input 
+                            type="text" 
+                            id="question" 
+                            name="question" 
+                            class="qestion" 
+                            value={this.state.question} 
+                            onChange={(e) => {this.handleChange(e)}} 
+                            placeholder="your question"/>
                         </label>
                     </div>
 
                     <div>
                         <label htmlFor="answer">Type in your answer here: 
-                            <input type="text" id="answer" name="answer" class="answer" value={this.state.answer} onChange={(e) => this.handleChange(e)} placeholder="your answer"/>                                 
+                            <input 
+                            type="text" 
+                            id="answer" 
+                            name="answer" 
+                            class="answer" 
+                            value={this.state.answer} 
+                            onChange={(e) => this.handleChange(e)} 
+                            placeholder="your answer"/>                                 
                         </label>
                     </div>
 

@@ -23,7 +23,7 @@ class ReadForm extends Component {
         event.preventDefault();
         // axios handler for api call.
         apiHandler   
-        .postQA(this.state)
+        .deleteQA(this.state)
         .then((data) => {
             this.props.context.setUser(data);
 

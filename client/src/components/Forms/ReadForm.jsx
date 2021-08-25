@@ -5,6 +5,7 @@ import apiHandler from "../../api/apiHandler";
 class ReadForm extends React.Component {
     state = {
         allQuestions: [],
+        count: 0,
     }
 
     componentDidMount() {
@@ -18,6 +19,12 @@ class ReadForm extends React.Component {
         })
         .catch((error) => {console.log(error)});    
     }
+
+    handleIncrement = () => {
+        this.setState({
+            count: this.state.count + 1,
+        });
+    };
     
     render() {
         return (
