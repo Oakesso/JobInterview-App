@@ -1,87 +1,57 @@
-import React, { Component } from 'react';
+import React from 'react';
 import apiHandler from "../../api/apiHandler";
-import axios from 'axios';
- 
-class ReadForm extends Component {
+
+// display questions element on screen.
+class ReadForm extends React.Component {
     state = {
-        question: ""
+        allQuestions: [],
     }
- 
-    // componentDidMount() {
-    //     axios.get("localhost:5000/api/qa")
-    //     .then(response => {
-    //         // console.log("toto");
-    //         this.setState({question: response.question});
-    //     })
-    // }
 
-    // apiHandler   
-    // .postQA(this.state)
-    // .then((data) => {
-    //     this.props.context.setUser(data);
-
-    //     // set state to initial values.                
-    // }).catch((error) => {console.log(error)}); 
-
- 
+    componentDidMount() {
+        apiHandler   
+        .getQA(this.state)
+        .then((apiResponse) => { 
+            console.log(apiResponse);
+            this.setState({
+                allQuestions: apiResponse,
+            });
+        })
+        .catch((error) => {console.log(error)});    
+    }
     render() {
         return (
-            <div>
-                TOTO { this.state.question}
-            </div>
-        );
-    };
+            <ul>                         
+            {this.state.allQuestions.map((question) =>{
+                return (
+                    <li>                    
+                        <div>
+                            - {question._id} // Your Questions Array size is : {this.state.allQuestions.length}
+                        </div>
+                        <br></br>
+                        <div>
+                            - {question.question}
+                        </div>
+                        <br></br>
+                        <div>
+                            - {question.answer}
+                        </div>
+                        <br></br>
+                        <div>
+                            - {question.category}
+                        </div>
+                        <br></br>
+                        <div>
+                            - {question.level}
+                        </div>
+                        <br></br>
+                    </li>
+                )
+            })}
+            </ul>
+        )
+    }
 }
  
 export default ReadForm;
 
 
-
-// import React, { Component} from 'react';
-// import apiHandler from '../../api/apiHandler';
-
-// const ReadForm = (props) => {
-//     return (
-//         <div>
-//             <h2>{props.question}</h2>
-//             {props.data.map((unit) => {
-//                 return (
-//                     <ul>
-//                         <li>{unit.question}</li>
-//                         <li>{unit.answer}</li>
-//                         <li>{unit.category}</li>
-//                         <li>{unit.level}</li>
-//                     </ul>
-//                 )
-//             })}
-//         </div>
-//     )
-// }
-
-// class ReadForm extends Component {
-//     state = {
-//         question: '',
-//         answer: '', 
-//         category: '',
-//         level: '',
-//     };       
-       
-//     handleSubmit = (event) => {
-//         apiHandler   
-//         .getQA(this.state)
-//         .then((response) => {            
-//             this.props.setState({category: response.category})
-//         // set state to initial values.                
-//         }).catch((error) => {console.log(error)});                       
-//     }
-
-//     render() {
-//         return (
-//             <div>                                
-//                   Toto {this.state.category} Tata
-//             </div>        
-//         )
-//     }
-// };
-
-// export default ReadForm;

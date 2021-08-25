@@ -10,7 +10,7 @@ class ReadQuestion extends React.Component {
             <div>
                 <NavMain />        
                 <NavForm />
-                {/* <ReadForm /> */}
+                <ReadForm />
                 <Footer />
             </div>
       )
