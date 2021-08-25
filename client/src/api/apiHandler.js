@@ -62,9 +62,19 @@ const apiHandler = {
 
   // api call to update data.
   updateQA(userInfo) {
-    return service.patch();
+    return service
+      .patch("api/qa/:id", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
+
   // api call to delete data.
+  deleteQA(userInfo) {
+    return service
+      .delete("api/aq/:id", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
 
 export default apiHandler;
