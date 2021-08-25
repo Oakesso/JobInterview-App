@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
-import NavMain from "../NavMain";
-import NavForm from "../NavForm";
+
 import "./../../styles/CreateForm.css";
 
 class CreateForm extends Component {
@@ -17,7 +16,6 @@ class CreateForm extends Component {
                 [event.target.name]: event.target.value,
             });
         };
-
 
         // call of api handler see in "apiHandler.js".
         // api connect to mongo and create new data record.        
@@ -35,10 +33,7 @@ class CreateForm extends Component {
 
     render() {
         return (
-            <div>                
-                <NavMain />
-                {/* <h1>Create QAForm :</h1> */}
-                <NavForm />
+            <div>                                
                 <form class="QAForm" onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="question" >Type in your question here: 

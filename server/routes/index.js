@@ -24,9 +24,9 @@ router.get("/", (req, res, next) => {
 
 // GET user can see one particular key in Q&A data object.
 router.get("/:id", (req, res, next) => {
-  console.log("req.params :", req.params);
-  console.log("req.params.id :", req.params.id);
-  console.log("req.body :", req.body);
+  // console.log("req.params :", req.params);
+  // console.log("req.params.id :", req.params.id);
+  // console.log("req.body :", req.body);
   if (!mongoose.isValidObjectId(req.params.id)) {
     return res
       .status(400)
@@ -49,7 +49,7 @@ router.post("/", (req, res, next) => {
   // console.log("req.body : ", req.body);
   QA.create(req.body)
     .then((qaCreated) => {
-      // console.log("qaCreated: ", qaCreated);
+      console.log("qaCreated: ", qaCreated);
       res.status(200).json(qaCreated);
     })
     .catch((error) => {

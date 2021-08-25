@@ -34,7 +34,8 @@ router.post("/signin", (req, res, next) => {
 
 // POST user sign up send data to server.
 router.post("/signup", (req, res, next) => {
-  const { email, password, firstName, lastName } = req.body;
+  console.log("req.body :", req.body);
+  const { username, email, password, isAdmin, history } = req.body;
 
   User.findOne({ email })
     .then((userDocument) => {
@@ -43,7 +44,13 @@ router.post("/signup", (req, res, next) => {
       }
 
       const hashedPassword = bcrypt.hashSync(password, salt);
-      const newUser = { email, lastName, firstName, password: hashedPassword };
+      const newUser = {
+        username,
+        email,
+        password: hashedPassword,
+        isAdmin: false,
+        history: [],
+      };
 
       User.create(newUser)
         .then(() => {
