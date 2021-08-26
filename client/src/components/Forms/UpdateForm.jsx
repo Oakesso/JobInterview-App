@@ -33,31 +33,25 @@ class UpdateForm extends Component {
   handleUpdate = (event) => {
     event.preventDefault();
 
-    const data = {
+    const newData = {
       question: this.state.question,
       answer: this.state.answer,
       category: this.state.category,
       level: this.state.level,
     };
-
-    const id = this.props.match.params.id;
-    console.log("id : ", this.state._id);
-    console.log("this.props.match.params.id :", this.props.match.params.id);
-    console.log("this.state : ", this.state);
+    // const id = this.props.match.params.id;
+    // console.log("id : ", this.state._id);
+    // console.log("this.props.match.params.id :", this.props.match.params.id);
+   
+    // console.log("this.state : ", this.state);
 
     axios
-    .patch(process.env.REACT_APP_BACKEND_URL + "/api/qa/" + this.state._id, data)
+    .patch(process.env.REACT_APP_BACKEND_URL + "/api/qa/" + this.state._id, newData)
     .then((apiResponse) => {
-      console.log("apiResponse 2 : ", apiResponse.data);
-
-      this.setState({
-        allQuestions: this.state.allQuestions.filter(
-          (question) => question._id !== id
-        ),
-      });
+      // console.log("apiResponse : ", apiResponse.data);
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
   };
           

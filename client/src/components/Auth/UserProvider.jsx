@@ -28,6 +28,10 @@ class UserProvider extends Component {
     this.setState({ user: null, isLoggedIn: false });
   };
 
+  displayUserInfo = () => {
+    return this.state.user;
+  }
+
   render() {
     //  Setup all the values/functions you want to expose to anybody reading
     // from the AuthContext.

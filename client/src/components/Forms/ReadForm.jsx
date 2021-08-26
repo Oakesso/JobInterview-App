@@ -12,7 +12,7 @@ class ReadForm extends React.Component {
         apiHandler   
         .getQA(this.state)
         .then((apiResponse) => { 
-            console.log(apiResponse);
+            // console.log(apiResponse);
             this.setState({
                 allQuestions: apiResponse,
             });

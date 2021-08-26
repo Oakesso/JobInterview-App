@@ -8,6 +8,8 @@ import "../styles/NavMain.css";
 const NavMain = (props) => {
   const { context } = props;
 
+  // console.log("context: ", context.user);
+
   function handleLogout() {
     apiHandler
       .logout()
@@ -27,13 +29,13 @@ const NavMain = (props) => {
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
-            <li>
-               {context.isLoggedIn && (
+            {/* <li>
+               {context.isLoggedIn && context.user.isAdmin === true && (
                 <NavLink to="/create-questions">
-                  {context.isLoggedIn} Take Questions
+                  {context.isLoggedIn} Admin
                 </NavLink>            
                 )}
-            </li> 
+            </li>  */}
             <li>
               <NavLink to="/profile">
                 {context.user && context.user.email}
