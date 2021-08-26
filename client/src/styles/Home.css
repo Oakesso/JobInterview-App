@@ -5,11 +5,11 @@
 .home-main-container {
   /* margin: 1px solid grey; */
   margin: 70px;
-  margin-left: 500px;
-  margin-right: 500px;
+  /* margin-left: 500px;
+  margin-right: 500px; */
 }
 
-.home-main-container-1 {
+/* .home-main-container-1 {
   display: flex;
   flex-direction: row;
 }
@@ -29,9 +29,9 @@
 }
 
 .home-main-container-c {
-  /* margin: 1px solid rgba(238, 238, 238); */
-  /* margin: 50px; */
-}
+  margin: 1px solid rgba(238, 238, 238);
+  margin: 50px;
+} */
 
 .sign-up-btn {
   border: 1px solid rgba(238, 238, 238);

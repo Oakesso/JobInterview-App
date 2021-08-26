@@ -39,9 +39,9 @@ class Home extends React.Component {
         
           <div class="home-main-container-2">
 
-            {/* <div class="home-main-container-c">
+            <div class="home-main-container-c">
               <Footer />
-            </div> */}
+            </div>
 
           </div>
 
