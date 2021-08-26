@@ -3,6 +3,7 @@ import Footer from "./../components/Footer";
 import NavMain from "./../components/NavMain";
 import NavForm from "./../components/NavForm";
 import CreateForm from '../components/Forms/CreateForm';
+import "../styles/CreateQuestion.css"
 
 class CreateQuestion extends React.Component {
     render() {

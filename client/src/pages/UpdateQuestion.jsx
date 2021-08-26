@@ -3,6 +3,7 @@ import Footer from "./../components/Footer";
 import NavMain from "./../components/NavMain";
 import NavForm from "./../components/NavForm";
 import UpdateForm from './../components/Forms/UpdateForm';
+import "../styles/UpdateQuestion.css"
 
 class UpdateQuestion extends React.Component {
     render() {

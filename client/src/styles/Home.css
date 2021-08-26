@@ -4,31 +4,30 @@
 
 .home-main-container {
   /* margin: 1px solid grey; */
-  margin: 70px;
-  /* margin-left: 500px;
-  margin-right: 500px; */
+  /* margin: 70px; */
 }
 
 /* .home-main-container-1 {
   display: flex;
   flex-direction: row;
-}
+} */
 
-.home-main-container-2 {
+/* .home-main-container-2 {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .home-main-container-a {
-  margin: 1px solid rgba(238, 238, 238);
-  width: 300px;
+  /* width: 300px; */
+  margin: 50px;
 }
 
 .home-main-container-b {
-  margin: 1px solid rgba(238, 238, 238);
+  /* margin: 1px solid rgba(238, 238, 238); */
+  background-color: khaki;
 }
 
-.home-main-container-c {
+/* .home-main-container-c {
   margin: 1px solid rgba(238, 238, 238);
   margin: 50px;
 } */

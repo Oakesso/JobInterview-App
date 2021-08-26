@@ -32,7 +32,7 @@ class Home extends React.Component {
             </div>
 
             <div class="home-main-container-b">    
-                <img src="https://drive.google.com/uc?id=1qAGH8x_V7l-QcvbpRf1spE6Lq6B9KsDu#xxx.gif​" alt="home-img" class="home-img" />  
+                {/* <img src="https://drive.google.com/uc?id=1qAGH8x_V7l-QcvbpRf1spE6Lq6B9KsDu#xxx.gif​" alt="home-img" class="home-img" />   */}
             </div>
 
           </div>
