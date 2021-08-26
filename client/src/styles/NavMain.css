@@ -17,3 +17,17 @@
 .NavMain .nav-list li:not(:last-child) {
   margin-right: 20px;
 }
+
+/* email display on the right side */
+.email-usr-display {
+  margin-top: 15.5px;
+}
+
+/* logo display on the left side */
+.img-logo {
+  /* border: 1px solid grey; */
+  width: 100px;
+  height: auto;
+  margin-top: 5px;
+  margin-left: 40px;
+}

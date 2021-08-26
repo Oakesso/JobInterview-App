@@ -24,7 +24,9 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+        {/* <h3 className="logo">App name</h3> */}
+        <img class="img-logo" src="https://drive.google.com/uc?id=1psCzGvZ4tPr_zHbgl5A6Rj826jBMX_LD#xxx.png" alt="logo-img" />
+        
       </NavLink>      
       <ul className="nav-list">
         {context.isLoggedIn && (
@@ -36,7 +38,7 @@ const NavMain = (props) => {
                 </NavLink>            
                 )}
             </li>  */}
-            <li>
+            <li className="email-usr-display" >
               <NavLink to="/profile">
                 {context.user && context.user.email}
               </NavLink>
