@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "preinstall": "cd ./server && npm install cd ..",
+    "preinstall": "cd ./server && npm install && cd ..",
     "start": "cd ./server && npm run start"
   },
   "repository": {
