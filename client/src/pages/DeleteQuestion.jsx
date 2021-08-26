@@ -7,7 +7,7 @@ import DeleteForm from './../components/Forms/DeleteForm';
 class DeleteQuestion extends React.Component {
     render() {
         return ( 
-            <div>
+            <div className="delete-question">
                 <NavMain />        
                 <NavForm />
                 <DeleteForm />            

@@ -7,7 +7,7 @@ import UpdateForm from './../components/Forms/UpdateForm';
 class UpdateQuestion extends React.Component {
     render() {
         return ( 
-            <div>
+            <div className="update-question">
                 <NavMain />        
                 <NavForm />
                 <UpdateForm />

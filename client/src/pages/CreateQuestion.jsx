@@ -7,7 +7,7 @@ import CreateForm from '../components/Forms/CreateForm';
 class CreateQuestion extends React.Component {
     render() {
         return ( 
-            <div>
+            <div className="create-question">
                 <NavMain />        
                 <NavForm />
                 <CreateForm />

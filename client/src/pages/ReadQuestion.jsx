@@ -7,7 +7,7 @@ import ReadForm from './../components/Forms/ReadForm';
 class ReadQuestion extends React.Component {
     render() {
         return ( 
-            <div>
+            <div className="read-question">
                 <NavMain />        
                 <NavForm />
                 <ReadForm />
