@@ -1,0 +1,26 @@
+{
+  "name": "JobInterview-App",
+  "version": "1.0.0",
+  "description": "- REACT_APP_BACKEND_URL = http://localhost:4000/;\r - REACT_APP_MAPBOX_TOKEN = qhah678607;\r - PORT= 4000;",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "react-simple-modal-provider": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "preinstall": "cd ./server && npm install cd ..",
+    "start": "cd ./server && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oakesso/JobInterview-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oakesso/JobInterview-App/issues"
+  },
+  "homepage": "https://github.com/Oakesso/JobInterview-App#readme"
+}
