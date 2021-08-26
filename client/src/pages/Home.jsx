@@ -11,31 +11,45 @@ class Home extends React.Component {
 
         <NavMain />
 
-        <div class="home-main-container-1">
-          <div>
-            <h1 class="catch-phrase">Crack the code of web dev job interviews.</h1>
-          </div>      
-          <div>
-            <p class="explications">Get trained to web development technical interviews. We help you with your job interview training. Because job interviewing prep is a job itself.</p>
-          </div>
-          <div class="sign-up-btn">
-            <NavLink to="/signup" >Sign Up</NavLink>              
-          </div>
-          <div class="sign-in-btn">
-            <NavLink to="/signin" >Log in</NavLink>
-          </div>
-        </div>
+        <div class="home-main-container">
 
-        <div class="home-main-container-2">    
-            <img src="https://drive.google.com/uc?id=1qAGH8x_V7l-QcvbpRf1spE6Lq6B9KsDu#xxx.gif​" alt="home-img" class="home-img" />  
-        </div>
+          <div class="home-main-container-1">
 
-        <div class="home-main-container-3">
-          <Footer />
-        </div>
+            <div class="home-main-container-a">
+
+              <div>
+                <h1 class="catch-phrase">Crack the code of web dev job interviews.</h1>
+              </div>      
+              <div>
+                <p class="explications">Get trained to web development technical interviews. We help you with your job interview training. Because job interviewing prep is a job itself.</p>
+              </div>
+              <div class="sign-up-btn">
+                <NavLink to="/signup" >Sign Up</NavLink>              
+              </div>
+              <div class="sign-in-btn">
+                <NavLink to="/signin" >Log in</NavLink>
+              </div>
+            </div>
+
+            <div class="home-main-container-b">    
+                <img src="https://drive.google.com/uc?id=1qAGH8x_V7l-QcvbpRf1spE6Lq6B9KsDu#xxx.gif​" alt="home-img" class="home-img" />  
+            </div>
+
+          </div>
+        
+          <div class="home-main-container-2">
+
+            {/* <div class="home-main-container-c">
+              <Footer />
+            </div> */}
+
+          </div>
+
+        </div> 
+
       </div>
     );
-  }des
+  }
 }
 
 export default Home;

@@ -2,7 +2,7 @@ import React from 'react';
 import { withUser } from '../Auth/withUser';
 import "../../styles/UserImgCustom.css"
 
-const UserImgProfile = (props) => {
+const UserImgCustom = (props) => {
     const { context } = props;
 
     const uri = ["https://e-cdns-images.dzcdn.net/images/user/27b2da4789262e3b828a8ec6587dd8aa/264x264-000000-80-0-0.jpg"]
@@ -16,5 +16,5 @@ const UserImgProfile = (props) => {
         )
     };
 
-export default withUser(UserImgProfile);    
+export default withUser(UserImgCustom);    
 
