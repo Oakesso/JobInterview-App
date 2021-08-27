@@ -18,7 +18,7 @@ class Home extends React.Component {
             <div class="home-main-container-a">
 
               <div>
-                <h1 class="catch-phrase">Crack the code of web dev job interviews.</h1>
+                <h1 class="catch-phrase">Crack the web dev job interview.</h1>
               </div>      
               <div>
                 <p class="explications">Get trained to web development technical interviews. We help you with your job interview training. Because job interviewing prep is a job itself.</p>
@@ -32,7 +32,7 @@ class Home extends React.Component {
             </div>
 
             <div class="home-main-container-b">    
-                {/* <img src="https://drive.google.com/uc?id=15QXXWblJAdTXykBCdYiVZhpQQJeqf2rT#xxx.png" alt="home-img" class="home-img" />   */}
+                <img src="https://drive.google.com/uc?id=1J3d2aK2aosbbcEpyyCvxnts_YRV5znTj#xxx.gif​" alt="home-img" class="home-img" />  
             </div>
 
           </div>

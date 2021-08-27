@@ -17,14 +17,24 @@
 }
 
 .home-main-container-a {
-  /* width: 300px; */
   margin: 50px;
   /* background-color: khaki; */
+  width: 30%;
 }
 
 .home-main-container-b {
   /* margin: 1px solid rgb(9, 9, 9); */
-  /* background-color: khaki; */
+  background-color: #f6efa6;
+  width: 70%;
+  margin-top: 40px;
+  margin-bottom: -10px;
+  /* margin-right: 50px; */
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .home-main-container-c {
@@ -43,7 +53,8 @@
   background-color: rgba(242, 169, 61, 0.891);
   font-weight: bold;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.7px 0.7px 1.1px;
 }
 
 .sign-in-btn {
@@ -57,12 +68,11 @@
   color: rgb(170, 170, 170);
   box-shadow: rgba(0, 0, 0, 0.16) 2.5px 1.5px 3px,
     rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
-  border-radius: 20px;
+  border-radius: 30px;
 }
 
 .home-img {
-  display: flexbox;
-  background: no-repeat center center fixed;
-  background-size: cover;
-  width: 70%;
+  width: 100%;
+  height: auto;
+  /* min-width: 500px; */
 }
