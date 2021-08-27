@@ -11,7 +11,9 @@ class DeleteQuestion extends React.Component {
             <div className="delete-question">
                 <NavMain />        
                 <NavForm />
-                <DeleteForm />            
+                <div className="delete-form">
+                    <DeleteForm />            
+                </div>
                 <Footer />
             </div>
       )

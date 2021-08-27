@@ -11,7 +11,9 @@ class ReadQuestion extends React.Component {
             <div className="read-question">
                 <NavMain />        
                 <NavForm />
-                <ReadForm />
+                <div className="read-form">
+                    <ReadForm />
+                </div>                
                 <Footer />
             </div>
       )

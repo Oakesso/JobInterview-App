@@ -11,7 +11,9 @@ class UpdateQuestion extends React.Component {
             <div className="update-question">
                 <NavMain />        
                 <NavForm />
-                <UpdateForm />
+                <div className="update-form">
+                    <UpdateForm />
+                </div>
                 <Footer />
             </div>
       )

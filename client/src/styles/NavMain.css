@@ -5,11 +5,11 @@
   align-items: center;
   padding: 20px;
   height: 70px;
-  /* border: 1px solid rgba(238, 238, 238); */
+  border: 1px solid rgba(238, 238, 238);
   /* margin-left: 500px;
   margin-right: 500px; */
-  /* border-top-left-radius: 50px;
-  border-top-right-radius: 50px; */
+  /* border-top-left-radius: 25px; */
+  border-radius: 10px;
 }
 
 .NavMain .nav-list {
@@ -34,4 +34,5 @@
   height: auto;
   margin-top: 5px;
   margin-left: 40px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }

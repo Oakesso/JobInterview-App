@@ -25,7 +25,7 @@ const NavMain = (props) => {
     <nav className="NavMain">
       <NavLink exact to="/">
         {/* <h3 className="logo">App name</h3> */}
-        <img class="img-logo" src="https://drive.google.com/uc?id=1psCzGvZ4tPr_zHbgl5A6Rj826jBMX_LD#xxx.png" alt="logo-img" />
+        <img class="img-logo" src="https://drive.google.com/uc?id=15QXXWblJAdTXykBCdYiVZhpQQJeqf2rT#xxx.png" alt="logo-img" />
         
       </NavLink>      
       <ul className="nav-list">

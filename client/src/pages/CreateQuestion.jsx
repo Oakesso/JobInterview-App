@@ -11,7 +11,9 @@ class CreateQuestion extends React.Component {
             <div className="create-question">
                 <NavMain />        
                 <NavForm />
-                <CreateForm />
+                <div className="create-form">
+                    <CreateForm />
+                </div>
                 <Footer />
             </div>
       )
