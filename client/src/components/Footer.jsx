@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -23,7 +24,7 @@ function Footer() {
                         <h3>Your Account:</h3>
                     </li>
                     <li>
-                        <p>Profile</p>
+                        <NavLink to="/profile" >Profile</NavLink>
                     </li>                
                 </ul>
             </div>

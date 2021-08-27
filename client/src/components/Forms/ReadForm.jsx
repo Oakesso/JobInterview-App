@@ -1,5 +1,7 @@
 import React from 'react';
 import apiHandler from "../../api/apiHandler";
+import { withRouter, Redirect } from "react-router-dom";
+import { withUser } from "../Auth/withUser";
 import "../../styles/ReadForm.css"
 
 // display questions element on screen.
@@ -7,6 +9,8 @@ class ReadForm extends React.Component {
     state = {
         allQuestions: [],
         count: 0,
+        isAnswerCalled: false,
+        history: [],
     }
 
     componentDidMount() {
@@ -25,33 +29,40 @@ class ReadForm extends React.Component {
     handleIncrement = () => {
         this.setState({
             count: this.state.count + 1,
+            isAnswerCalled: false, // set to hide answer if already displayed.
         });
     };
 
     handleDecrement = () => {
         this.setState({
             count: this.state.count - 1,
+            isAnswerCalled: false, // set to hide answer if already displayed.
+            history: this.state.count
         });
     };
 
+    handleShowAnswer = () => {
+        console.log("this.state :", this.state);
+        this.setState({ isAnswerCalled: !this.state.isAnswerCalled });
+    };
+
     handleNothing = () => {
-        console.log("Nothing here !", this.state.count)
+        console.log("Nothing here !", this.state.count);
     };
     
     render() {
         const { allQuestions } = this.state;
-        // console.log("this.state A: ", this.state);
-        // console.log("this.state.count : ", this.state.count);
-        
+       
         // at 1rst state.allQuestion is undefined.
         // we want defined values.
-        if (this.state.count === -1 || this.state.count === this.state.allQuestions.length) {
+        if (this.state.count === -1 || this.state.count === this.state.allQuestions.length) {            
             if (this.state.count <= -1) {
                 console.log("this.state.count : ", this.state.count);
                 this.state.count = -1; 
+
                 return (
                     <div>  
-                        <div>--- </div>
+                        <p>---</p>
                         <button onClick= {this.handleNothing}>previous</button>
                         <button onClick= {this.handleIncrement}>next</button>
                         <p>---</p>
@@ -60,9 +71,10 @@ class ReadForm extends React.Component {
             }
             if(this.state.count >= this.state.allQuestions.length) {
                 this.state.count = this.state.allQuestions.length;
+
                 return (
                     <div>  
-                        <div>--- </div>
+                        <p>---</p>
                         <button onClick= {this.handleDecrement}>previous</button>
                         <button onClick= {this.handleNothing}>next</button>
                         <p>---</p>
@@ -70,15 +82,27 @@ class ReadForm extends React.Component {
                 );
             }            
         } else  if (this.state.allQuestions.length !== 0) {
-            // console.log("this.state.allQuestions A: ", this.state.allQuestions);
-            // console.log("this.state.allQuestions[1]._id A: ", this.state.allQuestions[1]._id);
-            // console.log('this.state.count A: ', this.state.count)
+            // display of question and answer.
             return (
-                <div>  
-                    <div>Q { this.state.count }  : { this.state.allQuestions[this.state.count].question }</div>
-                    <button onClick= {this.handleDecrement}>previous</button>
-                    <button onClick= {this.handleIncrement}>next</button>
-                    <p>{ this.state.count } / { this.state.allQuestions.length - 1}</p>               
+                <div>                    
+                    <div>
+                        <p>{ this.state.count } - { this.state.allQuestions[this.state.count].question }</p>
+                    </div>
+
+                    <div>
+                        <button onClick= {this.handleShowAnswer}>Answer</button>
+                    </div>
+                    {/* conditionnal render of <p> tag with answer to display in it */}
+                    {/* if false hide = no display if true display andwser */}
+                    {this.state.isAnswerCalled && <p>{ this.state.allQuestions[this.state.count].answer }</p>}
+                     
+                    <div>
+                        <button onClick= {this.handleDecrement}>previous</button>
+                        <button onClick= {this.handleIncrement}>next</button>
+                    </div> 
+                    <div>
+                        <p>{ this.state.count } / { this.state.allQuestions.length - 1}</p>
+                    </div>                                                                                                
                 </div>
             );            
         } 

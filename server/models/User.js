@@ -10,7 +10,7 @@ const userSchema = new Schema(
     history: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "QuestionAnswer",
+        ref: "QA",
       },
     ],
   },
