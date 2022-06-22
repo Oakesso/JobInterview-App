@@ -1,4 +1,5 @@
-# JobInterview-App
+# JobInterview-App : 
+See application at:  https://jobinterview-app.herokuapp.com/
 
 # In client folder :
 
